@@ -13,18 +13,12 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
-    //sockfd = socket(AF_INET, SOCK_STREAM, 0);
     sockfd = Socket(AF_INET, SOCK_STREAM, 0);
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(SERV_PORT);
     inet_pton(AF_INET, argv[1], &servaddr.sin_addr);
-
-    if (connect(sockfd, (struct sockaddr*) &servaddr, sizeof(servaddr)) < 0) {
-        fprintf(stderr, "connect error\n");
-        exit(1);
-    }
-
+    Connect(sockfd, (struct sockaddr*) &servaddr, sizeof(servaddr));
     str_cli(stdin, sockfd);
     return 0;
 }
@@ -40,11 +34,7 @@ void str_cli(FILE* fp, int sockfd) {
         FD_SET(fileno(fp), &rset);
         FD_SET(sockfd, &rset);
         maxfdp1 = max(fileno(fp), sockfd) + 1;
-
-        if (select(maxfdp1, &rset, NULL, NULL, NULL) < 0) {
-            fprintf(stderr, "select error\n");
-            exit(1);
-        }
+        Select(maxfdp1, &rset, NULL, NULL, NULL);
 
         if (FD_ISSET(sockfd, &rset)) {
             bzero(recvline, sizeof(sendline));
