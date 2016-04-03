@@ -20,5 +20,6 @@ void Getsockopt(int, int, int, void *, socklen_t *);
 void Listen(int, int);
 int Socket(int, int, int);
 int Select(int, fd_set *, fd_set *, fd_set *, struct timeval *);
+void Shutdown(int, int);
 
 #endif //UNP_PROJ_WRAPSOCK_H

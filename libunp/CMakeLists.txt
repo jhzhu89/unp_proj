@@ -8,8 +8,8 @@ file(GLOB SOURCE_HEADERS include/*.h)
 
 #include_directories(${PROJECT_SOURCE_DIR}/include)
 
-#add_executable(libunp ${SOURCE_FILES})
 add_library(unp ${SOURCE_FILES})
+#add_compile_options(-Wno-format-security)
 
 file(GLOB TEST_SRC_FILES test/*.c)
 add_executable(libtest ${TEST_SRC_FILES})

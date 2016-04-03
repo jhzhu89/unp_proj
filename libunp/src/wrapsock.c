@@ -80,3 +80,8 @@ int Select(int nfds, fd_set* readfds, fd_set* writefds, fd_set* exceptfds,
 
     return n;
 }
+
+void Shutdown(int fd, int how) {
+    if (shutdown(fd, how) < 0)
+        err_sys("shutdown error");
+}

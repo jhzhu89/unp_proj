@@ -37,10 +37,10 @@ int main(int argc, char** argv) {
             connfd = Accept(listenfd, (SA*)&cliaddr, &clilen);
 
             for (i = 0; i < FD_SETSIZE; ++i) {
-                if (client[i] < 0)
+                if (client[i] < 0) {
                     client[i] = connfd; // save descriptor
-
-                break;
+                    break;
+                }
             }
 
             if (i == FD_SETSIZE)
@@ -70,8 +70,7 @@ int main(int argc, char** argv) {
                     FD_CLR(sockfd, &allset);
                     client[i] = -1;
                 } else
-                    //Writen(sockfd, buf, n);
-                    write(sockfd, buf, n);
+                    Writen(sockfd, buf, n);
 
                 if (--nready <= 0)
                     break;

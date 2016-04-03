@@ -60,12 +60,7 @@ void str_cli(FILE* fp, int sockfd) {
 
             if (read(fileno(fp), sendline, MAXLINE) == 0) {
                 stdineof = 1;
-
-                if (shutdown(sockfd, SHUT_WR) < 0) {
-                    fprintf(stderr, "shutdown error\n");
-                    exit(1);
-                }
-
+                Shutdown(sockfd, SHUT_WR);
                 FD_CLR(fileno(fp), &rset);
                 continue;
             }
