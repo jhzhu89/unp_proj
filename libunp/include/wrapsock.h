@@ -6,6 +6,7 @@
 #define UNP_PROJ_WRAPSOCK_H
 
 #include <sys/socket.h>
+#include <sys/time.h>
 
 #define SA struct sockaddr
 
@@ -18,5 +19,6 @@ void Getsockname(int, SA *, socklen_t *);
 void Getsockopt(int, int, int, void *, socklen_t *);
 void Listen(int, int);
 int Socket(int, int, int);
+int Select(int, fd_set *, fd_set *, fd_set *, struct timeval *);
 
 #endif //UNP_PROJ_WRAPSOCK_H

@@ -8,6 +8,7 @@
 #include "defs.h"
 #include "error.h"
 #include "wrapsock.h"
+#include "wrapunix.h"
 #include "common.h"
 
 #endif //UNP_PROJ_UNP_PROJ_H
