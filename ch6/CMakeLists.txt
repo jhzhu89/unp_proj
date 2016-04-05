@@ -9,3 +9,6 @@ target_link_libraries(strcliselect02 unp)
 
 add_executable(tcpservselect01 tcpservselect01.c)
 target_link_libraries(tcpservselect01 unp)
+
+add_executable(tcpservpoll01 tcpservpoll01.c)
+target_link_libraries(tcpservpoll01 unp)

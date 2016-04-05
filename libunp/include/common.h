@@ -46,9 +46,13 @@
 # include	<sys/sysctl.h>
 #endif
 
-#ifdef	HAVE_POLL_H
-# include	<poll.h>		/* for convenience */
+#include <poll.h>
+#ifndef INFTIM
+#define INFTIM (-1)
 #endif
+//#ifdef	HAVE_POLL_H
+//# include	<poll.h>		/* for convenience */
+//#endif
 
 #ifdef	HAVE_SYS_EVENT_H
 # include	<sys/event.h>	/* for kqueue */
