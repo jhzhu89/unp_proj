@@ -14,4 +14,5 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/libunp)
 add_subdirectory(${PROJECT_SOURCE_DIR}/ch5)
 add_subdirectory(${PROJECT_SOURCE_DIR}/ch6)
 add_subdirectory(${PROJECT_SOURCE_DIR}/ch7)
+add_subdirectory(${PROJECT_SOURCE_DIR}/ch8)
 
