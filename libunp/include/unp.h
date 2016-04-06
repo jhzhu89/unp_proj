@@ -11,5 +11,7 @@
 #include "wrapunix.h"
 #include "common.h"
 #include "writen.h"
+#include "wraplib.h"
+#include "wrapstdio.h"
 
 #endif //UNP_PROJ_UNP_PROJ_H
