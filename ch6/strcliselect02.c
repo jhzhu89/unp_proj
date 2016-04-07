@@ -1,6 +1,5 @@
 #include <unp.h>
 
-#define max(a, b) ((a > b) ? a : b)
 
 void str_cli(FILE* fp, int sockfd);
 
@@ -60,7 +59,7 @@ void str_cli(FILE* fp, int sockfd) {
 
             if (read(fileno(fp), sendline, MAXLINE) == 0) {
                 stdineof = 1;
-                Shutdown(sockfd, SHUT_WR);
+                Shutdown(sockfd, SHUT_RD);
                 FD_CLR(fileno(fp), &rset);
                 continue;
             }

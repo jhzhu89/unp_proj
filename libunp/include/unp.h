@@ -13,5 +13,7 @@
 #include "writen.h"
 #include "wraplib.h"
 #include "wrapstdio.h"
+#include "sock_ntop.h"
+#include "signal_wrap.h"
 
 #endif //UNP_PROJ_UNP_PROJ_H

@@ -81,7 +81,7 @@ again:
         fprintf(stdout, "!!! received EINTR\n");
         goto again;
     } else if (n < 0) {
-        fprintf(stderr, "fork error\n");
+        fprintf(stderr, "write error\n");
         exit(1);
     }
 }

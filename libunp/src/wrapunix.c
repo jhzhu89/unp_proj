@@ -3,7 +3,17 @@
 //
 #include <sys/types.h>
 #include <unistd.h>
+#include <unp.h>
 #include "../include/error.h"
+
+pid_t Fork(void) {
+    pid_t pid;
+
+    if ((pid = fork()) == -1)
+        err_sys("fork error");
+
+    return pid;
+}
 
 ssize_t Read(int fd, void* ptr, size_t nbytes) {
     ssize_t n;
@@ -22,4 +32,13 @@ void Close(int fd) {
 void Write(int fd, void* ptr, size_t nbytes) {
     if (write(fd, ptr, nbytes) != nbytes)
         err_sys("write error");
+}
+
+void* Malloc(size_t size) {
+    void* ptr;
+
+    if ((ptr = malloc(size)) == NULL)
+        err_sys("malloc error");
+
+    return ptr;
 }

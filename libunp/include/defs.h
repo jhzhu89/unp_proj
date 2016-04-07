@@ -9,4 +9,7 @@
 #define SERV_PORT 9877
 #define LISTENQ 1024
 
+#define max(a, b) ((a > b) ? a : b)
+
+
 #endif //UNP_PROJ_DEFS_H
