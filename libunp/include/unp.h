@@ -14,6 +14,9 @@
 #include "wraplib.h"
 #include "wrapstdio.h"
 #include "sock_ntop.h"
+#include "sock_ntop_host.h"
 #include "signal_wrap.h"
+#include "host_serv.h"
+#include "tcp_connect.h"
 
 #endif //UNP_PROJ_UNP_PROJ_H

@@ -8,3 +8,6 @@ target_link_libraries(hostent unp)
 
 add_executable(daytimetcpcli1 daytimetcpcli1.c)
 target_link_libraries(daytimetcpcli1 unp)
+
+add_executable(daytimetcpcli daytimetcpcli.c)
+target_link_libraries(daytimetcpcli unp)
