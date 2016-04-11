@@ -11,3 +11,6 @@ target_link_libraries(daytimetcpcli1 unp)
 
 add_executable(daytimetcpcli daytimetcpcli.c)
 target_link_libraries(daytimetcpcli unp)
+
+add_executable(daytimetcpsrv1 daytimetcpsrv1.c)
+target_link_libraries(daytimetcpsrv1 unp)
