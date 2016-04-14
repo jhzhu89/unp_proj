@@ -17,3 +17,9 @@ target_link_libraries(daytimetcpsrv1 unp)
 
 add_executable(daytimetcpsrv2 daytimetcpsrv2.c)
 target_link_libraries(daytimetcpsrv2 unp)
+
+add_executable(daytimeudpcli1 daytimeudpcli1.c)
+target_link_libraries(daytimeudpcli1 unp)
+
+add_executable(daytimeudpserv2 daytimeudpserv2.c)
+target_link_libraries(daytimeudpserv2 unp)
