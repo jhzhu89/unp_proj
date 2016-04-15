@@ -21,5 +21,7 @@
 #include "tcp_listen.h"
 #include "udp_client.h"
 #include "udp_server.h"
+#include "daemon_init.h"
+#include "daemon_inetd.h"
 
 #endif //UNP_PROJ_UNP_PROJ_H
