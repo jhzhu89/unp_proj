@@ -13,5 +13,7 @@
 
 #define max(a, b) ((a > b) ? a : b)
 
+#define UNIXSTR_PATH  "/tmp/unix.str" // Unix domain stream
+#define UNIXDG_PATH  "/tmp/unix.dg"  // Unix domain datagram
 
 #endif //UNP_PROJ_DEFS_H
