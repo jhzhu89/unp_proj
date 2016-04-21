@@ -26,5 +26,9 @@ ssize_t Recvfrom(int, void *, size_t, int, struct sockaddr *, socklen_t *);
 void Send(int, const void *, size_t , int );
 void Sendto(int, const void *, size_t, int, const struct sockaddr *, socklen_t);
 void Setsockopt(int, int, int, const void *, socklen_t);
+int Kqueue(void);
+
+struct kevent; // forward declaration
+int Kevent(int, const struct kevent *, int, struct kevent *, int, const struct timespec *);
 
 #endif //UNP_PROJ_WRAPSOCK_H

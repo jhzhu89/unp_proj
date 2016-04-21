@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <sys/select.h>
+#include <sys/event.h>
 #include "../include/wrapsock.h"
 #include "../include/error.h"
 
@@ -120,4 +121,23 @@ void Setsockopt(int fd, int level, int optname, const void* optval,
                 socklen_t optlen) {
     if (setsockopt(fd, level, optname, optval, optlen) < 0)
         err_sys("setsockopt error");
+}
+
+int Kqueue(void) {
+    int ret;
+
+    if ((ret = kqueue()) < 0)
+        err_sys("kqueue error");
+
+    return ret;
+}
+
+int Kevent(int kq, const struct kevent* changelist, int nchanges,
+           struct kevent* eventlist, int nevents, const struct timespec* timeout) {
+    int ret;
+
+    if ((ret = kevent(kq, changelist, nchanges, eventlist, nevents, timeout)) < 0)
+        err_sys("kevent error");
+
+    return ret;
 }
