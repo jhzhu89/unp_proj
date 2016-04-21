@@ -26,6 +26,7 @@
 #include	<sys/wait.h>
 #include	<sys/un.h>		/* for Unix domain sockets */
 #include    <poll.h>
+#include    <sys/event.h>   /* for kevent */
 
 //#include    <netinet/sctp.h>
 #include    <netinet/in.h>  /* after OSX Lion, IPROTO_SCTP is defined in this header */
