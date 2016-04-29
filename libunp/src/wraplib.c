@@ -6,9 +6,9 @@
 #include <arpa/inet.h>
 #include "../include/error.h"
 
-const char* Inet_ntop(int family, const void* addrptr, char* strptr,
+const char *Inet_ntop(int family, const void *addrptr, char *strptr,
                       size_t len) {
-    const char* ptr;
+    const char *ptr;
 
     if (strptr == NULL)
         err_quit("NULL 3rd argument to inet_ntop");
@@ -19,7 +19,7 @@ const char* Inet_ntop(int family, const void* addrptr, char* strptr,
     return ptr;
 }
 
-void Inet_pton(int family, const char* strptr, void* addrptr) {
+void Inet_pton(int family, const char *strptr, void *addrptr) {
     int n;
 
     if ((n = inet_pton(family, strptr, addrptr)) < 0)

@@ -7,8 +7,8 @@
 #include "../include/error.h"
 #include "../include/wrapunix.h"
 
-int udp_client(const char* host, const char* serv, struct sockaddr** saptr,
-               socklen_t* lenp) {
+int udp_client(const char *host, const char *serv, struct sockaddr **saptr,
+               socklen_t *lenp) {
     int sockfd, n;
     struct addrinfo hints, *res, *ressave;
     bzero(&hints, sizeof(struct addrinfo));
@@ -37,7 +37,7 @@ int udp_client(const char* host, const char* serv, struct sockaddr** saptr,
     return sockfd;
 }
 
-int Udp_client(const char* host, const char* serv, struct sockaddr** saptr,
-               socklen_t* lenp) {
+int Udp_client(const char *host, const char *serv, struct sockaddr **saptr,
+               socklen_t *lenp) {
     return udp_client(host, serv, saptr, lenp);
 }

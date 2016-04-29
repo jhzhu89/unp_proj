@@ -4,22 +4,22 @@
 
 #include "unp.h"
 
-void str_cli(FILE*, int);
+void str_cli(FILE *, int);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int sockfd;
     struct sockaddr_un servaddr;
     sockfd = Socket(AF_LOCAL, SOCK_STREAM, 0);
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sun_family = AF_LOCAL;
     strcpy(servaddr.sun_path, UNIXSTR_PATH);
-    Connect(sockfd, (SA*)&servaddr, sizeof(servaddr));
+    Connect(sockfd, (SA *)&servaddr, sizeof(servaddr));
     str_cli(stdin, sockfd);
     exit(0);
 }
 
 // kqueue based
-void str_cli(FILE* fp, int sockfd) {
+void str_cli(FILE *fp, int sockfd) {
     int kq, i, n, nev, stdineof = 0, isfile;
     char buf[MAXLINE];
     struct kevent kev[2];

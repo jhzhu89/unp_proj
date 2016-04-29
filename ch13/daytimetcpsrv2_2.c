@@ -4,10 +4,10 @@
 #include "unp.h"
 #include <time.h>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int listenfd, connfd;
     socklen_t addrlen, len;
-    struct sockaddr* cliaddr;
+    struct sockaddr *cliaddr;
     char buff[MAXLINE];
     time_t ticks;
 

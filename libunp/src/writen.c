@@ -7,10 +7,10 @@
 #include <unistd.h>
 #include "../include/error.h"
 
-ssize_t writen(int fd, const void* vptr, size_t n) {
+ssize_t writen(int fd, const void *vptr, size_t n) {
     size_t nleft = n;
     ssize_t nwritten;
-    const char* ptr = vptr;
+    const char *ptr = vptr;
 
     while (nleft > 0) {
         if ((nwritten = write(fd, ptr, nleft)) <= 0) {
@@ -27,7 +27,7 @@ ssize_t writen(int fd, const void* vptr, size_t n) {
     return n;
 }
 
-void Writen(int fd, void* ptr, size_t nbytes) {
+void Writen(int fd, void *ptr, size_t nbytes) {
     if (writen(fd, ptr, nbytes) != nbytes)
         err_sys("writen error");
 }

@@ -3,11 +3,11 @@
 //
 #include "unp.h"
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int sockfd, n;
     char recvline[MAXLINE + 1];
     socklen_t salen;
-    struct sockaddr* sa;
+    struct sockaddr *sa;
 
     if (argc != 3)
         err_quit("usage: daytimeudpcli1 <hostname/IP> <service/port#>");

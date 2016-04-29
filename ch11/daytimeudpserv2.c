@@ -4,7 +4,7 @@
 #include "unp.h"
 #include <time.h>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int sockfd;
     ssize_t n;
     char buff[MAXLINE];
@@ -21,11 +21,11 @@ int main(int argc, char** argv) {
 
     for (;;) {
         len = sizeof(cliaddr);
-        n = Recvfrom(sockfd, buff, MAXLINE, 0, (SA*)&cliaddr, &len);
-        printf("datagram from %s\n", Sock_ntop((SA*)&cliaddr, len));
+        n = Recvfrom(sockfd, buff, MAXLINE, 0, (SA *)&cliaddr, &len);
+        printf("datagram from %s\n", Sock_ntop((SA *)&cliaddr, len));
         ticks = time(NULL);
         snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));
-        Sendto(sockfd, buff, strlen(buff), 0, (SA*)&cliaddr, len);
+        Sendto(sockfd, buff, strlen(buff), 0, (SA *)&cliaddr, len);
     }
 }
 

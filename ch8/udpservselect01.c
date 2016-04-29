@@ -5,7 +5,7 @@
 
 void str_echo(int);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int listenfd, connfd, udpfd, nready, maxfdp1;
     char mesg[MAXLINE];
     pid_t childpid;
@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     servaddr.sin_port = htons(SERV_PORT);
     // set this option before binding
     Setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
-    Bind(listenfd, (SA*)&servaddr, sizeof(servaddr));
+    Bind(listenfd, (SA *)&servaddr, sizeof(servaddr));
     Listen(listenfd, LISTENQ);
     // create the UDP socket
     udpfd = Socket(AF_INET, SOCK_DGRAM, 0);
@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(SERV_PORT);
-    Bind(udpfd, (SA*) &servaddr, sizeof(servaddr));
+    Bind(udpfd, (SA *) &servaddr, sizeof(servaddr));
     Signal(SIGCHLD, sig_chld); // must call waitpid()
     FD_ZERO(&rset);
     maxfdp1 = max(listenfd, udpfd) + 1;
@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
 
         if (FD_ISSET(listenfd, &rset)) {
             len = sizeof(cliaddr);
-            connfd = Accept(listenfd, (SA*)&cliaddr, &len);
+            connfd = Accept(listenfd, (SA *)&cliaddr, &len);
 
             if ((childpid = Fork()) == 0) { // child process
                 Close(listenfd);
@@ -62,8 +62,8 @@ int main(int argc, char** argv) {
 
         if (FD_ISSET(udpfd, &rset)) {
             len = sizeof(cliaddr);
-            n = Recvfrom(udpfd, mesg, MAXLINE, 0, (SA*)&cliaddr, &len);
-            Sendto(udpfd, mesg, n, 0, (SA*)&cliaddr, len);
+            n = Recvfrom(udpfd, mesg, MAXLINE, 0, (SA *)&cliaddr, &len);
+            Sendto(udpfd, mesg, n, 0, (SA *)&cliaddr, len);
         }
     }
 }

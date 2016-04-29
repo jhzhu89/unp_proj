@@ -5,7 +5,7 @@
 #include <unp.h>
 #include <limits.h>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int i, maxi, listenfd, connfd, sockfd;
     int nready;
     ssize_t n;
@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(SERV_PORT);
-    Bind(listenfd, (SA*)&servaddr, sizeof(servaddr));
+    Bind(listenfd, (SA *)&servaddr, sizeof(servaddr));
     Listen(listenfd, LISTENQ);
     client[0].fd = listenfd;
     client[0].events = POLLRDNORM;
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
         if (client[0].revents & POLLRDNORM) {
             fprintf(stdout, "got connection request!\n");
             clilen = sizeof(cliaddr);
-            connfd = Accept(listenfd, (SA*)&cliaddr, &clilen);
+            connfd = Accept(listenfd, (SA *)&cliaddr, &clilen);
 
             for (i = 1; i < OPEN_MAX; ++i) {
                 if (client[i].fd < 0) {

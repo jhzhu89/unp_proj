@@ -10,5 +10,6 @@ ssize_t Read(int, void *, size_t);
 void Write(int, void *, size_t);
 void Close(int);
 void *Malloc(size_t);
+pid_t Waitpid(pid_t, int *, int);
 
 #endif //UNP_PROJ_WRAPUNIX_H

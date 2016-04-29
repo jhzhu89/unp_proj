@@ -3,7 +3,7 @@
 //
 #include <unp.h>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int i, maxi, maxfd, listenfd, connfd, sockfd;
     int nready, client[FD_SETSIZE];
     ssize_t n;
@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(SERV_PORT);
-    Bind(listenfd, (SA*) &servaddr, sizeof(servaddr));
+    Bind(listenfd, (SA *) &servaddr, sizeof(servaddr));
     Listen(listenfd, LISTENQ);
     maxfd = listenfd; // initialize
     maxi = -1;        // index of client[] array
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
         if (FD_ISSET(listenfd, &rset)) {
             // new client connection
             clilen = sizeof(cliaddr);
-            connfd = Accept(listenfd, (SA*)&cliaddr, &clilen);
+            connfd = Accept(listenfd, (SA *)&cliaddr, &clilen);
 
             for (i = 0; i < FD_SETSIZE; ++i) {
                 if (client[i] < 0) {

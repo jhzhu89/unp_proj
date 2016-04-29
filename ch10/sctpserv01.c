@@ -4,7 +4,7 @@
 
 #include "unp.h"
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     //int sock_fd, msg_flags;
     //char readbuf[BUFFSIZE];
     //struct sockaddr_in servaddr, cliaddr;

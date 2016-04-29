@@ -5,10 +5,10 @@
 #ifndef UNP_PROJ_WRAPSTDIO_H
 #define UNP_PROJ_WRAPSTDIO_H
 
-FILE * Fopen(const char*, const char*);
+FILE *Fopen(const char *, const char *);
 void Fclose(FILE *);
-char * Fgets(char *, int, FILE*);
+char *Fgets(char *, int, FILE *);
 void Fputs(const char *ptr, FILE *stream);
-FILE * fdopen(int fd, const char* type);
+FILE *fdopen(int fd, const char *type);
 
 #endif //UNP_PROJ_WRAPSTDIO_H

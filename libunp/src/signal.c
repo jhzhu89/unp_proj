@@ -7,8 +7,8 @@
 #include "../include/error.h"
 #include "../include/signal_wrap.h"
 
-Sigfunc* Signal(int signo, Sigfunc* func) {
-    Sigfunc* sigfunc;
+Sigfunc *Signal(int signo, Sigfunc *func) {
+    Sigfunc *sigfunc;
 
     if ((sigfunc = signal(signo, func)) == SIG_ERR)
         err_sys("signal error");

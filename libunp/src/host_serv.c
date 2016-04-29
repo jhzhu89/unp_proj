@@ -4,7 +4,7 @@
 #include <netdb.h>
 #include <strings.h>
 
-struct addrinfo* host_serv(const char* host, const char* serv, int family,
+struct addrinfo *host_serv(const char *host, const char *serv, int family,
                            int socktype) {
     int n;
     struct addrinfo hints, *res;

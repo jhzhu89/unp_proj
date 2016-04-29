@@ -1,9 +1,9 @@
 #include <unp.h>
 
 
-void str_cli(FILE* fp, int sockfd);
+void str_cli(FILE *fp, int sockfd);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int sockfd;
     struct sockaddr_in servaddr;
 
@@ -17,12 +17,12 @@ int main(int argc, char** argv) {
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(SERV_PORT);
     inet_pton(AF_INET, argv[1], &servaddr.sin_addr);
-    Connect(sockfd, (struct sockaddr*) &servaddr, sizeof(servaddr));
+    Connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
     str_cli(stdin, sockfd);
     return 0;
 }
 
-void str_cli(FILE* fp, int sockfd) {
+void str_cli(FILE *fp, int sockfd) {
     int maxfdp1;
     fd_set rset;
     char sendline[MAXLINE], recvline[MAXLINE];

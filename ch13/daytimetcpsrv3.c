@@ -4,9 +4,9 @@
 #include "unp.h"
 #include <time.h>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     socklen_t len;
-    struct sockaddr* cliaddr;
+    struct sockaddr *cliaddr;
     char buff[MAXLINE];
     time_t ticks;
     daemon_inetd(argv[0], 0);

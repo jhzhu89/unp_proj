@@ -7,6 +7,6 @@
 
 // for Signal(...)
 typedef void Sigfunc(int);
-Sigfunc* Signal(int signo, Sigfunc *func);
+Sigfunc *Signal(int signo, Sigfunc *func);
 
 #endif //UNP_PROJ_SIGNAL_WRAP_H

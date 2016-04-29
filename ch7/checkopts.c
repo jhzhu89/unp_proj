@@ -92,10 +92,10 @@ struct sock_opts {
 
 /* include checkopts2 */
 int
-main(int argc, char** argv) {
+main(int argc, char **argv) {
     int fd;
     socklen_t len;
-    struct sock_opts* ptr;
+    struct sock_opts *ptr;
 
     for (ptr = sock_opts; ptr->opt_str != NULL; ptr++) {
         printf("%s: ", ptr->opt_str);
@@ -145,8 +145,8 @@ main(int argc, char** argv) {
 /* include checkopts3 */
 static char strres[128];
 
-static char*
-sock_str_flag(union val* ptr, int len) {
+static char *
+sock_str_flag(union val *ptr, int len) {
 /* *INDENT-OFF* */
     if (len != sizeof(int))
         snprintf(strres, sizeof(strres), "size (%d) not sizeof(int)", len);
@@ -159,8 +159,8 @@ sock_str_flag(union val* ptr, int len) {
 
 /* end checkopts3 */
 
-static char*
-sock_str_int(union val* ptr, int len) {
+static char *
+sock_str_int(union val *ptr, int len) {
     if (len != sizeof(int))
         snprintf(strres, sizeof(strres), "size (%d) not sizeof(int)", len);
     else
@@ -169,9 +169,9 @@ sock_str_int(union val* ptr, int len) {
     return (strres);
 }
 
-static char*
-sock_str_linger(union val* ptr, int len) {
-    struct linger* lptr = &ptr->linger_val;
+static char *
+sock_str_linger(union val *ptr, int len) {
+    struct linger *lptr = &ptr->linger_val;
 
     if (len != sizeof(struct linger))
         snprintf(strres, sizeof(strres),
@@ -183,9 +183,9 @@ sock_str_linger(union val* ptr, int len) {
     return (strres);
 }
 
-static char*
-sock_str_timeval(union val* ptr, int len) {
-    struct timeval* tvptr = &ptr->timeval_val;
+static char *
+sock_str_timeval(union val *ptr, int len) {
+    struct timeval *tvptr = &ptr->timeval_val;
 
     if (len != sizeof(struct timeval))
         snprintf(strres, sizeof(strres),

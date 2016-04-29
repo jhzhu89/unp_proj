@@ -4,10 +4,10 @@
 
 #include <unp.h>
 
-int main(int argc, char** argv) {
-    char* ptr, **pptr;
+int main(int argc, char **argv) {
+    char *ptr, **pptr;
     char str[INET_ADDRSTRLEN];
-    struct hostent* hptr;
+    struct hostent *hptr;
 
     while (--argc > 0) {
         ptr = *++argv;

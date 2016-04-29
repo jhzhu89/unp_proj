@@ -13,7 +13,7 @@
 
 extern int daemon_proc; // defined in error.c
 
-int daemon_init(const char* pname, int facility) {
+int daemon_init(const char *pname, int facility) {
     int i;
     pid_t pid;
 

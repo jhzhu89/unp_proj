@@ -23,5 +23,7 @@
 #include "udp_server.h"
 #include "daemon_init.h"
 #include "daemon_inetd.h"
+#include "read_fd.h"
+#include "write_fd.h"
 
 #endif //UNP_PROJ_UNP_PROJ_H

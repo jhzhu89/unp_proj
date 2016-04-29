@@ -7,7 +7,7 @@
 #include "../include/error.h"
 #include "../include/wrapunix.h"
 
-int udp_connect(const char* host, const char* serv) {
+int udp_connect(const char *host, const char *serv) {
     int sockfd, n;
     struct addrinfo hints, *res, *ressave;
     bzero(&hints, sizeof(struct addrinfo));
@@ -38,6 +38,6 @@ int udp_connect(const char* host, const char* serv) {
     return (sockfd);
 }
 
-int Udp_connect(const char* host, const char* serv) {
+int Udp_connect(const char *host, const char *serv) {
     return udp_connect(host, serv);
 }

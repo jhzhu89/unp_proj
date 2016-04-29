@@ -3,7 +3,7 @@
 //
 #include "unp.h"
 
-void str_cli(FILE* fp, int sockfd) {
+void str_cli(FILE *fp, int sockfd) {
     int kq, i, n, nev, stdineof = 0, isfile;
     char buf[MAXLINE];
     struct kevent kev[2];
@@ -53,7 +53,7 @@ void str_cli(FILE* fp, int sockfd) {
     }
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     if (argc != 2)
         err_quit("usage: str_cli_kqueue04 <IPadress>");
 
@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
     serv.sin_port = htons(SERV_PORT);
     Inet_pton(AF_INET, argv[1], &serv.sin_addr);
     int sockfd = Socket(AF_INET, SOCK_STREAM, 0);
-    Connect(sockfd, (struct sockaddr*)&serv, sizeof(serv));
+    Connect(sockfd, (struct sockaddr *)&serv, sizeof(serv));
     str_cli(stdin, sockfd);
     return 0;
 }

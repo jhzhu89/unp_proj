@@ -7,7 +7,7 @@
 void str_echo(int sockfd);
 void sig_chld(int signo);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int listenfd, connfd;
     pid_t childpid;
     socklen_t clilen;
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(SERV_PORT);
 
-    if (bind(listenfd, (struct sockaddr*) &servaddr, sizeof(servaddr)) < 0) {
+    if (bind(listenfd, (struct sockaddr *) &servaddr, sizeof(servaddr)) < 0) {
         fprintf(stderr, "bind error\n");
         return -1;
     }
@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     for (;;) {
         clilen = sizeof(cliaddr);
 
-        if ((connfd = accept(listenfd, (struct sockaddr*) &cliaddr, &clilen)) < 0) {
+        if ((connfd = accept(listenfd, (struct sockaddr *) &cliaddr, &clilen)) < 0) {
             if (errno == EINTR) {
                 fprintf(stderr, "receive signal EINTR!\n");
                 continue;
@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
 
 void str_echo(int sockfd) {
     char line[MAXLINE];
-    FILE* fpin, *fpout;
+    FILE *fpin, *fpout;
     fpin = fdopen(sockfd, "r");
     fpout = fdopen(sockfd, "w");
 

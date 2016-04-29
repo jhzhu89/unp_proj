@@ -6,7 +6,7 @@
 #include "../include/error.h"
 #include "../include/wrapunix.h"
 
-int tcp_connect(const char* host, const char* serv) {
+int tcp_connect(const char *host, const char *serv) {
     int sockfd, n;
     struct addrinfo hints, *res, *ressave;
     bzero(&hints, sizeof(hints));
@@ -37,7 +37,7 @@ int tcp_connect(const char* host, const char* serv) {
     return sockfd;
 }
 
-int Tcp_connect(const char* host, const char* serv) {
+int Tcp_connect(const char *host, const char *serv) {
     return tcp_connect(host, serv);
 }
 

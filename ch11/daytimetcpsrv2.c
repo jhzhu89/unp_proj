@@ -4,7 +4,7 @@
 #include "unp.h"
 #include <time.h>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int listenfd, connfd;
     socklen_t addrlen;
     char buff[MAXLINE];
@@ -20,8 +20,8 @@ int main(int argc, char** argv) {
 
     for (;;) {
         addrlen = sizeof(cliaddr);
-        connfd = Accept(listenfd, (SA*)&cliaddr, &addrlen);
-        printf("connection from %s\n", Sock_ntop((SA*)&cliaddr, addrlen));
+        connfd = Accept(listenfd, (SA *)&cliaddr, &addrlen);
+        printf("connection from %s\n", Sock_ntop((SA *)&cliaddr, addrlen));
         ticks = time(NULL);
         snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));
         Write(connfd, buff, strlen(buff));

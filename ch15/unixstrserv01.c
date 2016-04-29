@@ -7,7 +7,7 @@
 void str_echo(int);
 void sig_chld(int);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     int listenfd, connfd;
     pid_t childpid;
     socklen_t clilen;
@@ -18,14 +18,14 @@ int main(int argc, char** argv) {
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sun_family = AF_LOCAL;
     strcpy(servaddr.sun_path, UNIXSTR_PATH);
-    Bind(listenfd, (SA*)&servaddr, sizeof(servaddr));
+    Bind(listenfd, (SA *)&servaddr, sizeof(servaddr));
     Listen(listenfd, LISTENQ);
     Signal(SIGCHLD, sig_chld);
 
     for (;;) {
         clilen = sizeof(cliaddr);
 
-        if ((connfd = accept(listenfd, (SA*)&cliaddr, &clilen)) < 0) {
+        if ((connfd = accept(listenfd, (SA *)&cliaddr, &clilen)) < 0) {
             if (errno == EINTR)
                 continue; // back to for()
             else
